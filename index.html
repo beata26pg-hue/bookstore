@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book store">
+    <title>Book store</title>
+
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/books.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/filter.js" defer></script>
+
+
+</head>
+
+<body class="container">
+
+    <header id="header" class="header border-b">
+        <a href="/" class="logo">
+            <img width="340" src="/assets/images/icons/logo.png" alt="Bookhandel logo">
+        </a>
+    </header>
+
+    <main>
+        <section>
+            <div class="search">
+
+                <div class="heading">
+                    <h1>Bøker</h1>
+                    <p class="m-0">Finn din favoritt</p>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m20 20-4-4"></path>
+                        </svg>
+                    </span>
+                    <input type="search" id="searchInput" placeholder="Søk etter titler eller forfatter">
+                </div>
+            </div>
+        </section>
+        <div class="store">
+            <section class="filter">
+                <div class="filter-heading border-b">
+                    <h2>Filtrer</h2>
+                    <p><a class="underline" href="/">Tøm filtre</a></p>
+                </div>
+                <div class="filter-container language-filter border-b">
+                    <h3>Språk</h3>
+                    <label>
+                        <input type="checkbox" class="checkbox-language" name="language" value="no">
+                        Norsk
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox-language" name="language" value="en">
+                        Engelsk
+                    </label>
+                </div>
+                <div class="filter-container category-filter border-b">
+                    <h3>Sjanger</h3>
+                    <label>
+                        <input type="checkbox" class="checkbox-cat" name="category" value="roman">
+                        Roman
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox-cat" name="category" value="fiksjon">
+                        Fiksjon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox-cat" name="category" value="biografi">
+                        Biografi
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox-cat" name="category" value="krim">
+                        Krim
+                    </label>
+                </div>
+            </section>
+
+            <!--Books three col-->
+            <section id="books">
+                <div class="results">
+                    <p id="bookCount" class="book-count"> </p>
+                    <select id="sortFilter">
+                        <option value="all">Sorter</option>
+                        <option value="a-z">Alfabetisk</option>
+                        <option value="new">Nyeste</option>
+                        <option value="lowPrice">Pris Lav - Høy</option>
+                        <option value="highPrice">Pris Høy-Lav</option>
+                        <option value="popular">Mest populære</option>
+                    </select>
+                </div>
+                <div id="bookList" class="book-list"></div>
+            </section>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer">
+            <img src="/assets/images/icons/logo.png" alt="logo" width="120" height="40">
+        </div>
+    </footer>
+
+</body>
+
+</html>
