@@ -30,29 +30,31 @@ function filterBooks() {
         .map(checkbox => checkbox.value);
     console.log(selectedCategories, "selectedCategories");
 
-    // Filter books
+    // Filter books based on search text, selected languages and categories
     const filteredBooks = books.filter(book => {
+        // Check if the search text includes the book title or matches authors first name, last name or full name
         const matchesSearch =
             book.title.toLowerCase().includes(searchText) ||
             book.authorName.toLowerCase() === searchText ||
             book.authorLastName.toLowerCase() === searchText ||
             (book.authortName + " " + book.authorLastName).toLocaleLowerCase().includes(searchText)
+        //Chceck if books matcher selectd languages, default shows all
         const matchesLanguage =
             selectedLanguages.length === 0 ||
             selectedLanguages.includes(book.language);
-
+        //Chceck if books matcher selectd categories, default shows all
         const matchesCategories =
             selectedCategories.length === 0 ||
             selectedCategories.includes(book.category.toLocaleLowerCase());
 
         return matchesSearch && matchesLanguage && matchesCategories;
     });
+    // results count, singular og plural text based on result count
     const count = filteredBooks.length;
     bookCount.textContent =
         `${count} ${count === 1 ? "bok" : "bøker"} funnet`;
 
-
-    // Sortering
+    // JS arrow function for sortering
     switch (sortFilter.value) {
         case "a-z":
             filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
