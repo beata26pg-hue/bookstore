@@ -37,7 +37,7 @@ function filterBooks() {
             book.title.toLowerCase().includes(searchText) ||
             book.authorName.toLowerCase() === searchText ||
             book.authorLastName.toLowerCase() === searchText ||
-            (book.authortName + " " + book.authorLastName).toLocaleLowerCase().includes(searchText)
+            (book.authorName + " " + book.authorLastName).toLocaleLowerCase().includes(searchText)
         //Chceck if books matcher selectd languages, default shows all
         const matchesLanguage =
             selectedLanguages.length === 0 ||
